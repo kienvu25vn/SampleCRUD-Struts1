@@ -31,4 +31,11 @@ public class UserService {
 	public int deleteUser(int idUser) {
 		return userRepository.removeUser(idUser);
 	}
+	public User login(User user) {
+		return userRepository.checkLogin(user);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(new UserService().getAllUsers().get(0).getFullname());
+	}
 }

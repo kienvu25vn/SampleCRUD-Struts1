@@ -7,48 +7,49 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>SAMPLE CRUD</title>
-<style>
-	.container{
-		text-align: center;
-	}
-	table{
-		margin : 0 auto;
-	}
-	table , tr , td , th{
-		border: 1px solid black;
-	}
-</style>
+<link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
 		<h1 style="font-weight=400">LIST USER!</h1>
-		<button><html:link action="/create-user.html">Create new User</html:link></button>
+		<button class="btn-primary"><html:link action="/create-user.html" style="text-decoration: none;color: white">Create new User</html:link></button>
 		<br>
 		<logic:present name="message">
 			<bean:write name="message" />
 		</logic:present>
 		<br>
-		<table>
-			<tr>
-				<th>Name</th>
-				<th>Age</th>
-				<th>Email</th>
-				<th>Option</th>
-			</tr>
-			<logic:iterate name="list" id="listId">
-				<tr>
-					<td><bean:write name="listId" property="name"/></td>
-					<td><bean:write name="listId" property="age" format="#######"/></td>
-					<td><bean:write name="listId" property="email"/></td>
-					<td>
-						<%-- <html:link action="/edit-product.html" paramName="listId" paramId="idProd" paramProperty="id">Edit</html:link> |  --%>
-						<html:link action="/delete-user.html" paramName="listId" paramId="idUser" paramProperty="id" onclick="return confirm('Do you want to delete this user?')">
-						Delete</html:link> 
-					</td>
-				</tr>
-			</logic:iterate>
-		</table>
+		<div class="table-responsive">
+			<div>
+				<table class="table table-bordered ">
+					<thead class="thead-dark">
+						<tr>
+							<th >FullName</th>
+							<th >Age</th>
+							<th >Email</th>
+							<th >Option</th>
+						</tr>
+					</thead>
+						<logic:iterate name="list" id="listId">
+							<tr>
+								<td><bean:write name="listId" property="fullname"/></td>
+								<td><bean:write name="listId" property="age" format="#######"/></td>
+								<td><bean:write name="listId" property="email"/></td>
+								<td>
+									<%-- <html:link action="/edit-product.html" paramName="listId" paramId="idProd" paramProperty="id">Edit</html:link> |  --%>
+									<button class="btn-danger"><html:link style="text-decoration: none;color: white" action="/delete-user.html" paramName="listId" paramId="idUser" paramProperty="id" onclick="return confirm('Do you want to delete this user?')">
+									Delete</html:link></button>
+								</td>
+							</tr>
+						</logic:iterate>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>

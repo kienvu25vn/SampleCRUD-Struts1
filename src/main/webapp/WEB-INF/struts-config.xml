@@ -8,15 +8,19 @@
 		<form-bean name="user" type="com.kienvu.model.User" />
 	</form-beans>
 	<action-mappings>
-		<action path="/home" type="com.kienvu.controller.UserController" parameter="showHomePage" name="user">
-			<forward name="viewUser" path="/user/viewUser.jsp"></forward>
+		<action path="/login-view" type="org.apache.struts.actions.ForwardAction" name="user" parameter="/login.jsp"></action>
+		<action path="/login" type="com.kienvu.controller.UserController" parameter="login" name="user">
+			<forward name="loginError" path="/login.jsp"></forward>
 		</action>
-		<action path="/delete-user" type="com.kienvu.controller.UserController" parameter="deleteUser" name="user">
+		<action path="/home" type="com.kienvu.controller.UserController" parameter="showHomePage" name="user">
 			<forward name="viewUser" path="/user/viewUser.jsp"></forward>
 		</action>
 		<action path="/create-user" name="user" type="org.apache.struts.actions.ForwardAction" parameter="/user/createUser.jsp">
 		</action>
 		<action path="/add-user" type="com.kienvu.controller.UserController" parameter="addUser" name="user">
+		</action>
+		<action path="/delete-user" type="com.kienvu.controller.UserController" parameter="deleteUser" name="user">
+			<forward name="viewUser" path="/user/viewUser.jsp"></forward>
 		</action>
 	</action-mappings>
 	<message-resources parameter="messages"></message-resources>

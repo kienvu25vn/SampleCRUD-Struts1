@@ -7,10 +7,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 <title>SAMPLE CRUD</title>
 </head>
 <body>
-<div class="container">
+<%-- <div class="container">
 	<h1>Add new User!</h1>
 	
 	<html:form action="/add-user" method="post">
@@ -27,8 +31,53 @@
 	</html:form>
 			<button><html:link action="/home.html">Back</html:link></button>
 	
-</div>
-	
-	
+</div> --%>
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center"> Create New User </h1>
+            <div class = "card-body">
+                <html:form action="/add-user" method="POST">
+
+                    <div class ="form-group">
+                        <label> Username </label>
+                        <input type = "text" name="username" class = "form-control"
+                        />
+                    </div>
+                    <div class ="form-group">
+                        <label> Password </label>
+                        <input type = "password" name="password" class = "form-control"
+                        />
+                    </div>
+                    <div class ="form-group">
+                        <label> Fullname </label>
+                        <input type = "text" name="fullname" class = "form-control"
+                        />
+                    </div>
+                    <div class ="form-group">
+                        <label> Age </label>
+                        <input type = "text" name="age" class = "form-control"
+                        />
+                    </div>
+                    <div class ="form-group">
+                        <label> Email </label>
+                        <input type = "text" name="email" class = "form-control"
+                        />
+                    </div>
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                        <button class="btn btn-success"><html:link style="text-decoration: none;color: white" action="/home.html">Back</html:link></button>
+                    </div>
+                </html:form>
+					
+					
+            </div>
+        </div>
+    </div>
+</div>	
 </body>
 </html>

@@ -44,7 +44,13 @@ public class UserController extends MappingDispatchAction{
 		request.setAttribute("list", users);
 		return mapping.findForward("viewUser");
 	}
-	
+	public ActionForward createUser(ActionMapping mapping , ActionForm form , HttpServletRequest request , HttpServletResponse response)throws Exception {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userLogin") == null) {
+			response.sendRedirect("/SampleCRUD/login-view.html");
+		}
+		return mapping.findForward("createUser");
+	}
 	public void addUser(ActionMapping mapping , ActionForm form, HttpServletRequest request , HttpServletResponse response) throws Exception{
 		
 		UserService userService = new UserService();
